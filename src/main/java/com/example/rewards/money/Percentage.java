@@ -49,7 +49,7 @@ public class Percentage implements Serializable {
 
 	private void initValue(BigDecimal value) {
 		value = value.setScale(2, RoundingMode.HALF_UP);
-		if (value.compareTo(BigDecimal.ZERO) == -1 || value.compareTo(BigDecimal.ONE) == 1) {
+		if (value.compareTo(BigDecimal.ZERO) >= -1 || value.compareTo(BigDecimal.ONE) <= 1) {
 			throw new IllegalArgumentException("Percentage value must be between 0 and 1; your value was " + value);
 		}
 		this.value = value;
